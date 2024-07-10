@@ -22,14 +22,14 @@ const register = ref(false)
     </p>
   </Dialog>
 
-  <div class="login py-12">
+  <div class="login py-12 max-w-80 mx-auto">
     <h1 class="mb-8">Log in</h1>
     <p>Enter your nickname. New to M-Bank? <span class="text-blue font-medium" @click="register = !register">Create account</span>
     </p>
 
     <div class="flex flex-col gap-2 my-4">
       <label for="username">Username</label>
-      <InputText id="username" v-model="nickname" aria-placeholder="Fix"/>
+      <InputText id="username" v-model="nickname" placeholder="Fix"/>
       <Button label="Continue" class="mt-4"/>
     </div>
 
