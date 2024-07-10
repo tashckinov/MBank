@@ -5,7 +5,7 @@ import TopMenu from "~/components/TopMenu.vue";
 
 <template>
   <TopMenu />
-  <div class="main-app">
+  <div class="main-app mb-16">
     <NuxtPage/>
   </div>
   <DownMenu class="fixed bottom-0 left-0 right-0 safe-bottom"/>

@@ -40,7 +40,7 @@ const shots = ref([
 
 <template>
   <h3 class="px-6">Suggestions</h3>
-  <div class="shots flex justify-start gap-2 px-6 overflow-auto">
+  <div class="shots flex justify-start gap-2 mx-6 overflow-auto">
     <Shot v-for="shot in shots" :item="shot"/>
   </div>
 </template>

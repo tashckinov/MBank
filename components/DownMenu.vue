@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <nav class="down-menu shadow-up">
+  <nav class="down-menu shadow-up bg-white">
     <ul class="flex justify-around w-full safe-bottom">
       <li class="menu-item active">
         <i class="pi pi-home"></i>
