@@ -8,6 +8,11 @@ export default {
     theme: {
         colors: {
             'blue': '#2451f0',
+            'gray': '#878789',
+            'light-gray': '#f3f4f6'
+        },
+        borderWidth: {
+            DEFAULT: '1px'
         },
         fontFamily: {
             sans: ['Kanit', 'sans-serif'],
@@ -16,6 +21,12 @@ export default {
             borderRadius: {
                 '4xl': '2rem',
             },
+            boxShadow: {
+                'up': '0 -2px 2px 0 rgba(0, 0, 0, 0.03), 0 -2px 4px -1px rgba(0, 0, 0, 0.06)',
+            },
+            screens: {
+                'xs': {'max': '360px'},
+            }
         },
     },
     plugins: [],
