@@ -10,7 +10,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="app flex flex-col gap-5">
+  <div class="app flex flex-col gap-5 overflow-hidden">
     <Accounts/>
     <Transactions/>
     <Shots/>

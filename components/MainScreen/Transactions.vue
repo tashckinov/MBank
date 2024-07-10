@@ -5,7 +5,7 @@
 <template>
   <div class="transactions-block">
     <h3 class="px-6">Transaction</h3>
-    <ul class="list flex py-4">
+    <ul class="list flex pt-4">
       <li class="transaction">
         <div class="icon">
           <i class="pi pi-money-bill"></i>
