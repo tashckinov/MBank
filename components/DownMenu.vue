@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <nav class="down-menu shadow-up bg-white">
-    <ul class="flex justify-around w-full safe-bottom">
+  <nav class="down-menu shadow-up bg-white pb-5">
+    <ul class="flex justify-around w-full">
       <li class="menu-item active">
         <i class="pi pi-home"></i>
         <p>Home</p>
@@ -49,9 +49,4 @@
   @apply text-blue font-semibold;
 }
 
-@supports (padding: max(0px)) {
-  .safe-bottom {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
 </style>
