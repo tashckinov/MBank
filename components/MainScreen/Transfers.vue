@@ -57,6 +57,6 @@ a {
 }
 
 .icon {
-  @apply w-12 h-12 rounded-xl bg-light-gray flex items-center justify-center;
+  @apply w-12 h-12 rounded-xl bg-gray-300 flex items-center justify-center;
 }
 </style>

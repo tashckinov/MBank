@@ -8,6 +8,7 @@ definePageMeta({
 </script>
 
 <template>
+  <TopMenu back name="Funds withdrawal" :notifications="false"/>
 
 </template>
 

@@ -1,8 +1,13 @@
 import Aura from '@primevue/themes/aura';
+import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
-    modules: ['@primevue/nuxt-module', "@nuxtjs/tailwindcss"],
-
+    runtimeConfig: {
+        public: {
+            apiBase: process.env.API_BASE_URL,
+        }
+    },
+    modules: ['@primevue/nuxt-module', "@nuxtjs/tailwindcss", '@pinia/nuxt'],
     app: {
         head: {
             title: 'M-Bank',
@@ -29,11 +34,6 @@ export default defineNuxtConfig({
             ]
         }
     },
-
-    css: [
-        '~/assets/css/global.css'
-    ],
-
     primevue: {
         options: {
             theme: {
@@ -41,6 +41,8 @@ export default defineNuxtConfig({
             }
         }
     },
-
+    css: [
+        '~/assets/css/global.css'
+    ],
     compatibilityDate: '2024-07-10'
 })

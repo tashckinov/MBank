@@ -46,7 +46,7 @@
 
 <style scoped>
 a {
-  @apply text-gray;
+  @apply text-gray-500;
 }
 
 .menu-item {
@@ -57,11 +57,11 @@ a {
   @apply xs:py-2;
 }
 
-.menu-item > p {
+.menu-item p {
   @apply xs:hidden;
 }
 
 .active {
-  @apply text-blue font-semibold;
+  @apply text-primary-500 font-semibold;
 }
 </style>

@@ -2,7 +2,6 @@
 
 
 import AccountSelect from "~/components/TransferScreen/AccountSelect.vue";
-import AccountInput from "~/components/TransferScreen/AccountInput.vue";
 
 definePageMeta({
   layout: 'bank'
@@ -11,10 +10,10 @@ definePageMeta({
 </script>
 
 <template>
-  <TopMenu back name="Transfer between accounts" :notifications="false"/>
+  <TopMenu back name="Transfer between your own accounts" :notifications="false"/>
 
   <AccountSelect/>
-  <AccountInput/>
+  <AccountSelect/>
 </template>
 
 <style scoped>

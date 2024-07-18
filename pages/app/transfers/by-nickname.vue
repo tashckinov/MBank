@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-
 definePageMeta({
   layout: 'bank'
 })
@@ -8,6 +7,7 @@ definePageMeta({
 </script>
 
 <template>
+  <TopMenu back name="Transfer by nickname" :notifications="false"/>
 
 </template>
 
