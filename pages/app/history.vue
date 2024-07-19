@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import HistoryList from "~/components/HistoryScreen/HistoryList.vue";
+
 definePageMeta({
   layout: 'bank'
 })
@@ -8,8 +10,9 @@ definePageMeta({
 
 <template>
   <TopMenu logo/>
-  <div class="history-block">
-    <h3 class="px-6 py-4">History</h3>
+  <div class="history-block px-6">
+    <h3 class="py-4">History</h3>
+    <HistoryList/>
   </div>
 </template>
 

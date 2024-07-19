@@ -25,7 +25,7 @@ async function fetchData() {
 
     if (response.status === 401 || response.status === 403) {
       // Redirect to login page or access forbidden page based on status code
-      router.push('/login');
+      await router.push('/login');
       return;
     }
 
