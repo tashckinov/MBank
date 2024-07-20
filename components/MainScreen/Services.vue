@@ -22,8 +22,8 @@ const items = ref([
 </script>
 
 <template>
-  <h3 class="px-6">Services</h3>
-  <div class="services px-6">
+  <div class="services">
+    <h3 class="mb-2">Services</h3>
     <Service class="mb-3" v-for="item in items" :item="item"/>
   </div>
 </template>

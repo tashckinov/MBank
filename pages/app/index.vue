@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useUserStore } from '~/stores/useUserStore';
+
 import Accounts from "~/components/MainScreen/Accounts.vue";
 import Shots from "~/components/MainScreen/Shots.vue";
 import Services from "~/components/MainScreen/Services.vue";
@@ -9,62 +11,32 @@ definePageMeta({
   layout: 'bank'
 });
 
-const router = useRouter();
-const token = useCookie('token');
-const runtimeConfig = useRuntimeConfig();
-const data = ref(null);
-const fetchError = ref(null);  // Добавим переменную для хранения ошибки
+const userStore = useUserStore();
 
-async function fetchData() {
-  try {
-    const response = await fetch(`${runtimeConfig.public.apiBase}/me`, {
-      headers: {
-        authorization: token.value
-      }
-    });
-
-    if (response.status === 401 || response.status === 403) {
-      // Redirect to login page or access forbidden page based on status code
-      await router.push('/login');
-      return;
-    }
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const fetchedData = await response.json();
-    data.value = fetchedData;
-    localStorage.setItem('data', JSON.stringify(fetchedData));
-    console.log('Response data:', fetchedData);
-  } catch (err) {
-    fetchError.value = err.message;
-    console.error('FetchData function error:', err);
-  }
+async function loadData() {
+  await userStore.fetchData();
 }
 
 onMounted(() => {
-  fetchData();
+  loadData();
 });
-
 </script>
 
 <template>
   <div>
-    <MainMenu :nickname="data ? data.nickname : ''"/> <!-- Check if data exists before accessing nickname -->
-    <div class="app flex flex-col gap-5 overflow-hidden mb-20">
-      <Accounts v-if="data" :accounts="data.accounts"/> <!-- Render Accounts component only if data is available -->
+    <MainMenu :nickname="userStore.data ? userStore.data.nickname : ''"/>
+    <div class="app flex flex-col gap-5 overflow-hidden mb-20 px-6">
+      <Accounts v-if="userStore.data" :accounts="userStore.data.accounts"/>
       <Transfers/>
       <Shots/>
       <Services/>
     </div>
-    <div v-if="fetchError" class="error">
-      Ошибка при загрузке данных: {{ fetchError }}
-    </div>
   </div>
 </template>
 
-
 <style scoped>
 /* Добавьте ваши стили здесь */
+.logout-button {
+  /* Ваши стили для кнопки выхода */
+}
 </style>

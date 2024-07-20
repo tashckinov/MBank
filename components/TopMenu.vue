@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useUserStore } from '~/stores/useUserStore';
 
+const userStore = useUserStore();
 const router = useRouter()
+
 
 const props = defineProps({
   back: {
@@ -27,21 +30,29 @@ const props = defineProps({
     default: false,
     required: false
   },
+  logout: {
+    type: Boolean,
+    default: false,
+    required: false
+  },
 })
-
+async function handleLogout() {
+  await userStore.logout();
+}
 </script>
 
 <template>
-  <div class="top-menu flex justify-between items-center px-6 py-4 bg-gray-100" :class="props.rounded?'rounded-b-xl':''">
-    <img v-if="props.logo" src="/logo/header-logo-circle.svg" class="w-8" alt="logo"/>
-    <i v-if="props.back" class="pi pi-arrow-left" style="font-size: 1.5rem" @click="router.back()"></i>
-    <p v-if="props.name">{{ props.name }}</p>
-    <NuxtLink to="/app/notifications" v-if="props.notifications">
+  <div class="top-menu flex justify-between items-center px-6 py-4 bg-gray-100" :class="rounded?'rounded-b-xl':''">
+    <img v-if="logo" src="/logo/header-logo-circle.svg" class="w-8" alt="logo"/>
+    <i v-if="back" class="pi pi-arrow-left" style="font-size: 1.5rem" @click="router.back()"></i>
+    <p v-if="name">{{ name }}</p>
+    <NuxtLink to="/app/notifications" v-if="notifications">
       <OverlayBadge value="2">
         <i class="pi pi-bell text-xl"></i>
       </OverlayBadge>
     </NuxtLink>
-    <span v-if="props.name"></span>
+    <i v-if="logout" class="pi pi-sign-out" style="font-size: 1rem" @click="handleLogout"></i>
+    <span v-else-if="name"></span>
   </div>
 </template>
 

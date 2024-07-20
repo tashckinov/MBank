@@ -4,7 +4,7 @@
 
 <template>
   <div class="transfers-block">
-    <h3 class="px-6">Transfers</h3>
+    <h3>Transfers</h3>
     <ul class="list flex pt-4">
       <li class="transfer w-1/4">
         <NuxtLink to="/app/transfers/withdraw" class="flex flex-col items-center text-center justify-between w-full text-black">

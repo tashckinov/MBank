@@ -5,9 +5,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="service float-left">
-    <i :class="item.icon" class="pi bg-light-gray p-4 rounded-xl mr-3" style="font-size: 1rem"></i>
-    <section class="float-right flex flex-col justify-between">
+  <div class="service flex gap-2">
+    <i :class="item.icon" class="pi bg-gray-300 p-4 rounded-xl mr-3" style="font-size: 1rem"></i>
+    <section class="flex flex-col justify-between">
       <b>{{ item.name }}</b>
       <p>{{ item.description }}</p>
     </section>
