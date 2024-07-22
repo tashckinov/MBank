@@ -26,7 +26,7 @@ async function login() {
 
     if (responseData.token) {
       token.value = responseData.token;
-      router.push({ path: '/app' });
+      await router.push({path: '/app'});
     } else {
       // Handle error or display message if token is not present
       console.error('Login failed:', responseData.error);
@@ -50,14 +50,14 @@ async function login() {
 
     <form class="flex flex-col gap-2 my-4">
       <label for="username">Username</label>
-      <InputText id="username" v-model="nickname" aria-placeholder="Fix" />
+      <InputText id="username" v-model="nickname" aria-placeholder="Fix"/>
       <label for="password">Password</label>
       <Password v-model="password" :inputStyle="{ width: '100%' }" toggleMask>
         <template #header>
           <div class="font-semibold text-xm mb-4">Pick a password</div>
         </template>
         <template #footer>
-          <Divider />
+          <Divider/>
           <ul class="pl-2 ml-2 my-0 leading-normal">
             <li>At least one lowercase</li>
             <li>At least one uppercase</li>
@@ -66,12 +66,13 @@ async function login() {
           </ul>
         </template>
       </Password>
-      <Button label="Continue" class="mt-4" />
+      <Button label="Continue" class="mt-4"/>
     </form>
 
     <p>
       By entering and clicking Continue, you agree to the
-      <NuxtLink to="/terms">Terms</NuxtLink>.
+      <NuxtLink to="/terms">Terms</NuxtLink>
+      .
     </p>
   </Dialog>
 
@@ -86,10 +87,10 @@ async function login() {
 
     <div class="flex flex-col gap-2 my-4">
       <label for="username">Username</label>
-      <InputText id="username" v-model="nickname" placeholder="Fix" />
+      <InputText id="username" v-model="nickname" placeholder="Fix"/>
       <label for="password">Password</label>
-      <Password v-model="password" :feedback="false" :inputStyle="{ width: '100%' }" toggleMask />
-      <Button label="Continue" class="mt-4" @click="login" />
+      <Password v-model="password" :feedback="false" :inputStyle="{ width: '100%' }" toggleMask/>
+      <Button label="Continue" class="mt-4" @click="login"/>
     </div>
 
     <p>

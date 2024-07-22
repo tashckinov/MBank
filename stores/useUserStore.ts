@@ -1,4 +1,5 @@
-import { defineStore } from 'pinia';
+import {defineStore} from 'pinia';
+
 export const useUserStore = defineStore('user', () => {
     const runtimeConfig = useRuntimeConfig();
     const router = useRouter();
@@ -22,6 +23,7 @@ export const useUserStore = defineStore('user', () => {
             });
 
             if (response.status === 401 || response.status === 403) {
+                await logout()
                 throw new Error('Unauthorized');
             }
 
@@ -34,17 +36,18 @@ export const useUserStore = defineStore('user', () => {
         } catch (err) {
             fetchError.value = err instanceof Error ? err.message : 'Unknown error';
             console.error('UpdateData function error:', err);
-
-            if (fetchError.value === 'Unauthorized') {
-                await logout();
-            }
+            //
+            // if (fetchError.value === 'Unauthorized') {
+            //     console.log(123)
+            //     // await logout();
+            // }
         }
     }
 
     async function logout() {
-        useCookie('token').value = '';
+        useCookie('token').value = null;
         await router.push('/login');
     }
 
-    return { data, fetchError, fetchData, updateData, logout };
+    return {data, fetchError, fetchData, updateData, logout};
 });
