@@ -26,7 +26,8 @@ async function login() {
 
     if (responseData.token) {
       token.value = responseData.token;
-      await router.push({path: '/app'});
+      window.location.href = '/app';
+      // await router.push({path: '/app'});
     } else {
       // Handle error or display message if token is not present
       console.error('Login failed:', responseData.error);

@@ -14,7 +14,7 @@ const shots = ref([
     text: 'Win travel to the Hawaii',
     preview: 'https://gas-kvas.com/grafic/uploads/posts/2023-10/1696520592_gas-kvas-com-p-kartinki-kvadratnie-1.jpg',
     content: [
-      'https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZ54TVtBbeRcw5JuSr2_gDUWaa3te1Bz2myNWCjgZaDyVvIEiHUQiO9WFRrJmS6SChJTVKfCv7GfIpj4SiaHyhEuxA1MFfOTQ=w1872-h964-rw-v1',
+      'https://papik.pro/izobr/uploads/posts/2023-03/1679310276_papik-pro-p-pablo-pikasso-kartini-25.jpg',
       'https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbiDaO-lMF6d0yMjO4A14pevj15s6aDtqzPTUHZOKPJVJBjSmmTXWfjPwEQKUH-dk8118kEVO5xoeVlmSLwpdii7tqW5RB7Bg=w1872-h964-rw-v1'
     ]
   },
