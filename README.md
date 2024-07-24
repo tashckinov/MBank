@@ -1,75 +1,31 @@
-# Nuxt 3 Minimal Starter
+# Online Bank Frontend
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Этот проект представляет собой фронтенд-приложение для онлайн-банка, разработанное в учебных целях. Он предоставляет удобный интерфейс для управления счетами, просмотра истории транзакций и выполнения основных банковских операций.
 
-## Setup
+## Установка
 
-Make sure to install the dependencies:
+Чтобы настроить проект локально, выполните следующие шаги:
 
-```bash
-# npm
-npm install
+1. **Клонируйте репозиторий:**
+    ```bash
+    git clone https://github.com/your-username/online-bank-frontend.git
+    ```
 
-# pnpm
-pnpm install
+2. **Перейдите в директорию проекта:**
+    ```bash
+    cd online-bank-frontend
+    ```
 
-# yarn
-yarn install
+3. **Установите зависимости:**
+    ```bash
+    npm install
+    ```
 
-# bun
-bun install
-```
+4. **Запустите проект:**
+    ```bash
+    npm start
+    ```
 
-## Development Server
+## Использование
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Откройте браузер и перейдите по адресу `http://localhost:3000`, чтобы просмотреть приложение.
