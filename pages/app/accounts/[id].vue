@@ -1,16 +1,9 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
-import { useUserStore } from '~/stores/useUserStore';
-import { useToast } from 'primevue/usetoast';
-import { useRoute } from 'vue-router';
-import { useRuntimeConfig } from '#app';
 
-// Настройка страницы
 definePageMeta({
   layout: 'bank'
 });
 
-// Инициализация
 const toast = useToast();
 const token = useCookie('token');
 const userStore = useUserStore();
@@ -18,7 +11,6 @@ const route = useRoute();
 const param = Number(route.params.id);
 const runtimeConfig = useRuntimeConfig();
 
-// Реактивные переменные
 const showCard = ref(false);
 const showEdit = ref(false);
 const newAccountName = ref('');

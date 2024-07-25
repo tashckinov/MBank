@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <div>
     <MainMenu :nickname="userStore.data ? userStore.data.nickname : ''"/>
-    <div class="app flex flex-col gap-5 overflow-hidden mb-20 px-6">
+    <div class="app flex flex-col gap-5 overflow-hidden px-6">
       <Accounts v-if="userStore.data" :accounts="userStore.data.accounts"/>
       <Transfers/>
       <Shots/>
