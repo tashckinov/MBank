@@ -1,6 +1,4 @@
 <script setup>
-import {ref} from 'vue';
-import {defineEmits} from 'vue';
 
 const selectedAccount = ref('');
 const isDropdownOpen = ref(false);

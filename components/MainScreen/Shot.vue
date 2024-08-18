@@ -145,7 +145,6 @@ const handleClick = (event: MouseEvent) => {
 </template>
 
 <style scoped>
-/* Убедитесь, что стили Tailwind применяются правильно */
 .flex-1 {
   flex: 1;
 }
