@@ -111,8 +111,60 @@ async function withdraw() {
   } catch (error) {
     console.error(error);
   }
+}
 
+async function cancel(id) {
 
+  const url = `${runtimeConfig.public.apiBase}/me/withdraw/${id}`;
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Authorization", token.value);
+  const requestOptions = {
+    method: "DELETE",
+    headers: myHeaders
+  };
+
+  try {
+    const response = await fetch(url, requestOptions);
+    console.log(response.status)
+    switch (response.status) {
+      case 200:
+        toast.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Request has been canceled, the funds will be returned to the main account',
+          life: 3000,
+          class: 'w-full sm:w-auto'
+        });
+        await userStore.updateData();
+        await withdrawStore.updateData();
+        break;
+      case 401:
+      case 403:
+        toast.add({
+          severity: 'warn',
+          summary: 'Token expired',
+          detail: 'You need to login again',
+          life: 3000,
+          class: 'w-full sm:w-auto'
+        });
+        await userStore.logout();
+        break;
+      default:
+        const result = await response.json();
+        if (result.error) {
+          toast.add({
+            severity: 'warn',
+            summary: 'Warn Message',
+            detail: result.error,
+            life: 3000,
+            class: 'w-full sm:w-auto'
+          });
+        }
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 </script>
@@ -142,14 +194,14 @@ async function withdraw() {
   <div class="px-6 mt-3">
     <h3>Requests:</h3>
     <div v-for="withdraw in withdrawStore.data" class="border p-3 rounded-2xl mt-1">
-      <div class="border-4">
+      <div class="border-4 mb-3 flex flex-col gap-1">
         <div class="flex justify-between">
           <b>Nickname: {{ withdraw.nickname }}</b>
           <p>Amount: {{ withdraw.amount }}
             <currency/>
           </p>
         </div>
-        <div class="flex justify-between">
+        <div class="flex gap-1">
           <b>Status:</b>
           <p :class="[
         'status select-none',
@@ -161,14 +213,14 @@ async function withdraw() {
             {{ withdraw.status }}
           </p>
         </div>
-        <p><b>Comment</b>: <br>{{ withdraw.comment }}</p>
-        <p><b>Bank comment</b>: <br>{{ withdraw.bankComment }}</p>
+        <p v-if="withdraw.comment"><b>Comment</b>: {{ withdraw.comment }}</p>
+        <p v-if="withdraw.bankComment"><b>Bank comment</b>: {{ withdraw.bankComment }}</p>
       </div>
       <section class="">
         <Button
             v-if="withdraw.status === 'OPENED'"
             @click="cancel(withdraw.id)"
-            class="">
+            severity="danger">
           Cancel
         </Button>
       </section>
