@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {useUserStore} from '~/stores/useUserStore';
 import AccountSelect from '~/components/TransferScreen/AccountSelect.vue';
+import {useTransactionStore} from '~/stores/useTransactionStore';
 
+const transactionStore = useTransactionStore();
 const userStore = useUserStore();
 const toast = useToast();
 const token = useCookie('token');
@@ -51,6 +53,7 @@ async function sendMoney() {
           class: 'w-full sm:w-auto',
         });
         await userStore.updateData();
+        await transactionStore.updateTransactions();
         preAmount.value = userStore.data.accounts.find((account) => account.account_id === selectedAccount.value.account_id).balance
 
         break;

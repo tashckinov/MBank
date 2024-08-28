@@ -2,7 +2,9 @@
 import {useUserStore} from '~/stores/useUserStore';
 import AccountSelect from '~/components/TransferScreen/AccountSelect.vue';
 import {useWithdrawStore} from "~/stores/useWithdrawStore";
+import {useTransactionStore} from '~/stores/useTransactionStore';
 
+const transactionStore = useTransactionStore();
 const userStore = useUserStore();
 const withdrawStore = useWithdrawStore();
 const toast = useToast();
@@ -82,6 +84,7 @@ async function withdraw() {
           life: 3000,
           class: 'w-full sm:w-auto'
         });
+        await transactionStore.updateTransactions();
         await userStore.updateData();
         await withdrawStore.updateData();
         break;

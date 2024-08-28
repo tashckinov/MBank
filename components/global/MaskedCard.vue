@@ -12,9 +12,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
-import { defineProps } from 'vue';
-
 const props = defineProps({
   cardNumber: {
     type: String,
