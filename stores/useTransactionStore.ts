@@ -52,8 +52,6 @@ export const useTransactionStore = defineStore('transaction', () => {
 
             const fetchedTransactions = await response.json();
 
-            console.log(fetchedTransactions)
-
             if (Object.keys(fetchedTransactions).length === 0) {
                 isMore.value = false;
             } else {
