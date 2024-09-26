@@ -1,10 +1,10 @@
 import Aura from '@primevue/themes/aura';
-import { defineNuxtConfig } from 'nuxt/config';
+import {defineNuxtConfig} from 'nuxt/config';
 
 export default defineNuxtConfig({
     runtimeConfig: {
         public: {
-            apiBase: process.env.API_BASE_URL,
+            apiBase: process.env.NUXT_PUBLIC_API_BASE,
         }
     },
     modules: ['@primevue/nuxt-module', "@nuxtjs/tailwindcss", '@pinia/nuxt'],

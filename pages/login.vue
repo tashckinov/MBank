@@ -14,6 +14,7 @@ async function login() {
   };
 
   try {
+
     const response = await fetch(`${runtimeConfig.public.apiBase}/auth`, {
       method: 'POST',
       headers: {
